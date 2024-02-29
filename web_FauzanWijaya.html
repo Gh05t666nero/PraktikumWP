@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta name="description" content="Ini adalah menu input biodata yang diperbarui" />
+  <title>web1 - Form Biodata</title>
+</head>
+<body>
+  <form name="formSatu">
+    <fieldset>
+      <legend><b><span style="color:blue;">Data Input</span></b></legend>
+      <table border="0" cellpadding="2" bgcolor="blue">
+        <tr>
+          <td bgcolor="white">NIM :</td>
+          <td><input type="text" name="id" /></td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Nama :</td>
+          <td><input type="text" name="nama" /></td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Email :</td>
+          <td><input type="email" name="email" /></td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Alamat :</td>
+          <td><input type="text" name="alamat" /></td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Jenis Kelamin :</td>
+          <td>
+            <select name="sex">
+              <option value="perempuan">perempuan</option>
+              <option value="laki-laki">laki-laki</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Agama :</td>
+          <td bgcolor="blue">
+            <input type="radio" name="ag01" value="Islam" /><span style="color:white;"><b>Islam</b></span><br />
+            <input type="radio" name="ag01" value="Protestan" /><span style="color:white;"><b>Protestan</b></span><br />
+            <input type="radio" name="ag01" value="Katolik" /><span style="color:white;"><b>Katolik</b></span><br />
+            <input type="radio" name="ag01" value="Buddha" /><span style="color:white;"><b>Buddha</b></span><br />
+            <input type="radio" name="ag01" value="Hindu" /><span style="color:white;"><b>Hindu</b></span>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Status :</td>
+          <td bgcolor="blue">
+            <input type="radio" name="st" value="Single" /><span style="color:white;"><b>Single</b></span><br />
+            <input type="radio" name="st" value="Married" /><span style="color:white;"><b>Married</b></span><br />
+            <input type="radio" name="st" value="Relationship" /><span style="color:white;"><b>In a Relationship</b></span><br />
+            <input type="radio" name="st" value="Complicated" /><span style="color:white;"><b>Complicated</b></span>
+          </td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Hobi :</td>
+          <td><input type="text" name="hobi" /></td>
+        </tr>
+        <tr>
+          <td bgcolor="white">Peminatan Konsentrasi :</td>
+          <td>
+            <select name="konsentrasi">
+              <option value="Keamanan Informasi">Keamanan Informasi</option>
+              <option value="RPL">RPL</option>
+              <option value="Grafika Komputer">Grafika Komputer</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><input type="button" value="Save" /></td>
+          <td><input type="button" value="Edit" /></td>
+          <td><input type="button" value="Delete" name="hapus" /></td>
+          <td><input type="reset" value="Reset" /></td>
+        </tr>
+      </table>
+    </fieldset>
+  </form>
+</body>
+</html>
