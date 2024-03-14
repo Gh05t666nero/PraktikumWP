@@ -1,94 +1,95 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="utf-8" />
-  <title>Pendaftaran Akun Baru</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Coded by M. Fauzan Wijaya" />
-  <link href="app.css" rel="stylesheet" />
-  <link href='https://fonts.googleapis.com/css?family=Chakra Petch' rel='stylesheet'>
-  <style>
-    .form-label {
-      margin-bottom: 10px !important;
-    }
-    body {
-      font-size: smaller;
-    }
-    .form-group {
-      margin-bottom: 10px;
-    }
-    .form-control {
-      border-color: #AAAAAA;
-    }
-    .error-message {
-      color: red;
-    }
-  </style>
-</head>
-<body class="pace-top">
-<div id="app" class="app 1 ">
-  <div class="login" style="margin-top:-32px">
-    <div class="login-content">
-      <form id="registrationForm" method="POST" action="#" data-toggle="validator">
-        <h1 class="text-center">Daftar Akun Baru</h1>
-        <div class="text-white text-opacity-50 text-center mb-4">Coded by M. Fauzan Wijaya</div>
-        
-        <div class="mb-3">
-          <label class="form-label" for="name">Nama <span class="text-danger">*</span></label>
-          <input autofocus autocomplete="off" id="name" type="text" name="name" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder="Masukkan Nama Anda" />
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
-          <input type="email" id="email" name="email" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder="Alamat Email" />
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label" for="password">Kata Sandi <span class="text-danger">*</span></label>
-          <input type="password" id="password" name="password" class="form-control form-control-lg bg-white bg-opacity-5" autocomplete="new-password" placeholder="Buat Kata Sandi" />
-          <div id="password_error" class="error-message"></div>
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label" for="confirm_password">Konfirmasi Kata Sandi <span class="text-danger">*</span></label>
-          <input type="password" id="confirm_password" name="confirm_password" class="form-control form-control-lg bg-white bg-opacity-5" placeholder="Konfirmasi Kata Sandi" />
-          <div id="confirm_password_error" class="error-message"></div>
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label" for="hobby">Hobi</label>
-          <input type="text" id="hobby" name="hobby" class="form-control form-control-lg bg-white bg-opacity-5" placeholder="Masukkan Hobi Anda" />
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label" for="concentration">Peminatan Konsentrasi <span class="text-danger">*</span></label>
-          <select id="concentration" name="concentration" class="form-select form-control-lg bg-white bg-opacity-5">
-            <option value="">Pilih Satu</option>
-            <option value="security">Keamanan Informasi</option>
-            <option value="rpl">Rekayasa Perangkat Lunak</option>
-            <option value="graphics">Grafika Komputer</option>
-          </select>
-        </div>
-        
-        <div class="mb-3">
-          <label class="form-label" for="religion">Agama <span class="text-danger">*</span></label>
-          <select id="religion" name="religion" class="form-select form-control-lg bg-white bg-opacity-5">
-            <option value="">Pilih Satu</option>
-            <option value="islam">Islam</option>
-            <option value="protestant">Protestan</option>
-            <option value="catholic">Katolik</option>
-            <option value="hindu">Hindu</option>
-            <option value="buddha">Buddha</option>
-            <option value="konghucu">Kong Hu Cu</option>
-          </select>
-        </div>
-        
-        <button type="submit" class="btn btn-outline-teal btn-lg d-block w-100 fw-500 mb-3">Daftar</button>
-      </form>
-    </div>
-  </div>
-</div>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pendaftaran Akun Baru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Coded by M. Fauzan Wijaya" />
+    <link href="app.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Chakra Petch' rel='stylesheet'>
+    <style>
+      .form-label {
+        margin-bottom: 10px !important;
+      }
 
-<script src="app.js"></script>
-</body>
+      body {
+        font-size: smaller;
+      }
+
+      .form-group {
+        margin-bottom: 10px;
+      }
+
+      .form-control {
+        border-color: #AAAAAA;
+      }
+
+      .error-message {
+        color: red;
+      }
+    </style>
+  </head>
+  <body class="pace-top">
+    <div id="app" class="app 1 ">
+      <div class="login" style="margin-top:-32px">
+        <div class="login-content">
+          <form id="registrationForm" method="POST" action="#" data-toggle="validator">
+            <h1 class="text-center">Daftar Akun Baru</h1>
+            <div class="text-white text-opacity-50 text-center mb-4">Coded by M. Fauzan Wijaya</div>
+            <div class="mb-3">
+              <label class="form-label" for="name">Nama <span class="text-danger">*</span>
+              </label>
+              <input autofocus autocomplete="off" id="name" type="text" name="name" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder="Masukkan Nama Anda" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="email">Email <span class="text-danger">*</span>
+              </label>
+              <input type="email" id="email" name="email" class="form-control form-control-lg bg-white bg-opacity-5" value="" placeholder="Alamat Email" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="password">Kata Sandi <span class="text-danger">*</span>
+              </label>
+              <input type="password" id="password" name="password" class="form-control form-control-lg bg-white bg-opacity-5" autocomplete="new-password" placeholder="Buat Kata Sandi" />
+              <div id="password_error" class="error-message"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="confirm_password">Konfirmasi Kata Sandi <span class="text-danger">*</span>
+              </label>
+              <input type="password" id="confirm_password" name="confirm_password" class="form-control form-control-lg bg-white bg-opacity-5" placeholder="Konfirmasi Kata Sandi" />
+              <div id="confirm_password_error" class="error-message"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="hobby">Hobi</label>
+              <input type="text" id="hobby" name="hobby" class="form-control form-control-lg bg-white bg-opacity-5" placeholder="Masukkan Hobi Anda" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="concentration">Peminatan Konsentrasi <span class="text-danger">*</span>
+              </label>
+              <select id="concentration" name="concentration" class="form-select form-control-lg bg-white bg-opacity-5">
+                <option value="">Pilih Satu</option>
+                <option value="security">Keamanan Informasi</option>
+                <option value="rpl">Rekayasa Perangkat Lunak</option>
+                <option value="graphics">Grafika Komputer</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="religion">Agama <span class="text-danger">*</span>
+              </label>
+              <select id="religion" name="religion" class="form-select form-control-lg bg-white bg-opacity-5">
+                <option value="">Pilih Satu</option>
+                <option value="islam">Islam</option>
+                <option value="protestant">Protestan</option>
+                <option value="catholic">Katolik</option>
+                <option value="hindu">Hindu</option>
+                <option value="buddha">Buddha</option>
+                <option value="konghucu">Kong Hu Cu</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-outline-teal btn-lg d-block w-100 fw-500 mb-3">Daftar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>
