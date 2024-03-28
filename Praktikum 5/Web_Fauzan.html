@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <title>Intelligence Engineering</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Coded by Kelompok 2" />
+        <link rel="stylesheet" type="text/css" href="app.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"
+        />
+        <style>
+            body {
+              font-size: smaller;
+            }
+
+            .form-label,
+            .form-group,
+            .mb-3 {
+              margin-bottom: 10px;
+            }
+
+            .form-control {
+              border-color: #AAAAAA;
+            }
+
+            .error-message,
+            #projectForm,
+            #projectTable {
+              display: none;
+            }
+
+            .is-invalid {
+              border-color: #FF0000;
+              background-color: #FFEEEE;
+            }
+
+            .login {
+              margin-top: -32px;
+            }
+
+            #projectTable {
+              max-width: 70%;
+              margin: auto;
+            }
+
+            table {
+              width: 100% !important;
+            }
+
+            /* margin pada tombol untuk memberi jarak */
+            .btn {
+              margin-bottom: 5px;
+            }
+
+            .dataTables_wrapper .dataTables_length label,
+            .dataTables_wrapper .dataTables_filter label,
+            .dataTables_wrapper .dataTables_info,
+            .dataTables_wrapper .dataTables_paginate .paginate_button {
+              color: #FFFFFF;
+            }
+
+            .dataTables_wrapper .dataTables_filter input,
+            .dataTables_wrapper .dataTables_length select {
+              color: #000000;
+              background-color: #FFFFFF;
+              border-color: #CCCCCC;
+            }
+
+            .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+            .dataTables_wrapper .dataTables_paginate .paginate_button.next {
+              color: #FFFFFF !important;
+            }
+
+            table {
+              color: #E0E0E0;
+            }
+
+            th,
+            td {
+              text-align: left;
+              padding: 8px;
+              border: 1px solid #666;
+              background-color: #222;
+            }
+        </style>
+    </head>
+    <body class="pace-top">
+        <main id="app" class="app">
+            <header class="login">
+                <div class="login-content">
+                    <div class="text-center mb-4">
+                        <button id="showFormButton" class="btn btn-primary">
+                            Create Project
+                        </button>
+                        <button id="showTableButton" class="btn btn-secondary">
+                            Show Projects
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <section id="projectForm" class="login">
+                <form
+                    id="ieForm"
+                    method="POST"
+                    action="#"
+                    data-toggle="validator"
+                    class="login-content"
+                >
+                    <h1 class="text-center">Create Project</h1>
+                    <div class="text-white text-opacity-50 text-center mb-4">
+                        Coded by Kelompok 2
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="benefit"
+                            >Manfaat Proyek bagi Organisasi
+                            <span class="text-danger">*</span>
+                        </label>
+                        <textarea
+                            name="benefit"
+                            id="benefit"
+                            class="form-control"
+                            placeholder="Masukkan Manfaat Proyek"
+                        ></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="indicator"
+                            >Leading Indicator
+                            <span class="text-danger">*</span>
+                        </label>
+                        <textarea
+                            name="indicator"
+                            id="indicator"
+                            class="form-control"
+                            placeholder="Masukkan Leading Indicator"
+                        ></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="outcomes"
+                            >User Outcome dan Model Properties
+                            <span class="text-danger">*</span>
+                        </label>
+                        <textarea
+                            name="outcomes"
+                            id="outcomes"
+                            class="form-control"
+                            placeholder="Masukkan User Outcome dan Model Properties"
+                        ></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="start"
+                            >Tanggal Mulai <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="date"
+                            name="start"
+                            id="start"
+                            class="form-control"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="end"
+                            >Tanggal Selesai <span class="text-danger">*</span>
+                        </label>
+                        <input
+                            type="date"
+                            name="end"
+                            id="end"
+                            class="form-control"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="status"
+                            >Status <span class="text-danger">*</span>
+                        </label>
+                        <select
+                            name="status"
+                            id="status"
+                            class="form-select form-control-lg"
+                        >
+                            <option value="">Pilih Status</option>
+                            <option value="selesai">Selesai</option>
+                            <option value="berlangsung">Berlangsung</option>
+                            <option value="gagal">Gagal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="description"
+                            >Deskripsi Catatan Akhir Kegiatan
+                            <span class="text-danger">*</span>
+                        </label>
+                        <textarea
+                            name="description"
+                            id="description"
+                            class="form-control"
+                            placeholder="Masukkan Deskripsi"
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn btn-outline-teal btn-lg d-block w-100 fw-500 mb-3"
+                    >
+                        Kirim
+                    </button>
+                    <div id="validationErrors" class="error-message">
+                        Mohon isi semua bidang yang diperlukan.
+                    </div>
+                </form>
+            </section>
+            <section
+                id="projectUpdateForm"
+                class="login"
+                style="display: none;"
+            >
+                <form
+                    id="ieUpdateForm"
+                    method="POST"
+                    action="#"
+                    class="login-content"
+                >
+                    <h1 class="text-center">Update Project</h1>
+                    <input type="hidden" name="updateIndex" id="updateIndex" />
+                    <div class="mb-3">
+                        <label class="form-label" for="updateBenefit"
+                            >Manfaat Proyek bagi Organisasi
+                            <span class="text-danger">*</span></label
+                        >
+                        <textarea
+                            name="benefit"
+                            id="updateBenefit"
+                            class="form-control"
+                            placeholder="Masukkan Manfaat Proyek"
+                        ></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="updateIndicator"
+                            >Leading Indicator
+                            <span class="text-danger">*</span></label
+                        >
+                        <textarea
+                            name="indicator"
+                            id="updateIndicator"
+                            class="form-control"
+                            placeholder="Masukkan Leading Indicator"
+                        ></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="updateOutcomes"
+                            >User Outcome dan Model Properties
+                            <span class="text-danger">*</span></label
+                        >
+                        <textarea
+                            name="outcomes"
+                            id="updateOutcomes"
+                            class="form-control"
+                            placeholder="Masukkan User Outcome dan Model Properties"
+                        ></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="updateStart"
+                            >Tanggal Mulai
+                            <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="date"
+                            name="start"
+                            id="updateStart"
+                            class="form-control"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="updateEnd"
+                            >Tanggal Selesai
+                            <span class="text-danger">*</span></label
+                        >
+                        <input
+                            type="date"
+                            name="end"
+                            id="updateEnd"
+                            class="form-control"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="updateStatus"
+                            >Status <span class="text-danger">*</span></label
+                        >
+                        <select
+                            name="status"
+                            id="updateStatus"
+                            class="form-select form-control-lg"
+                        >
+                            <option value="">Pilih Status</option>
+                            <option value="selesai">Selesai</option>
+                            <option value="berlangsung">Berlangsung</option>
+                            <option value="gagal">Gagal</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="updateDescription"
+                            >Deskripsi Catatan Akhir Kegiatan
+                            <span class="text-danger">*</span></label
+                        >
+                        <textarea
+                            name="description"
+                            id="updateDescription"
+                            class="form-control"
+                            placeholder="Masukkan Deskripsi"
+                        ></textarea>
+                    </div>
+                    <button
+                        type="submit"
+                        class="btn btn-outline-teal btn-lg d-block w-100 fw-500 mb-3"
+                    >
+                        Update
+                    </button>
+                </form>
+            </section>
+            <section id="projectTable">
+                <h2>Show Projects</h2>
+                <table id="projectsTable">
+                    <thead>
+                        <tr>
+                            <th>Manfaat Proyek</th>
+                            <th>Leading Indicator</th>
+                            <th>User Outcomes</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Status</th>
+                            <th>Deskripsi</th>
+                            <th>Waktu Submit</th>
+                            <th>Waktu Update Terakhir</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </main>
+        <!-- jQuery and DataTables scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+        <script>
+            $(document).ready(function() {
+                function loadProjects() {
+                    var table = $('#projectsTable').DataTable();
+                    table.clear().draw();
+                    var projects = JSON.parse(localStorage.getItem('ieProjects')) || [];
+                    $.each(projects, function(index, project) {
+                        var row = $.map(project, function(value, key) {
+                            return key === 'actions' ? null : value;
+                        });
+                        row.push('<button class="edit-btn btn btn-info" data-index="' + index + '">Edit</button>' +
+                                 '<button class="delete-btn btn btn-danger" data-index="' + index + '">Delete</button>');
+                        table.row.add(row).draw(false);
+                    });
+                }
+
+                $('#ieForm').submit(function(e) {
+                    e.preventDefault();
+                    var isValid = true;
+                    var formData = $(this).serializeArray().reduce(function(obj, item) {
+                        if (!item.value.trim()) isValid = false;
+                        obj[item.name] = item.value;
+                        return obj;
+                    }, {});
+                    if (!isValid) {
+                        $('#validationErrors').show();
+                        return;
+                    }
+                    var currentTime = new Date().toLocaleString();
+                    formData['submissionTime'] = currentTime;
+                    formData['lastUpdateTime'] = currentTime;
+                    var projects = JSON.parse(localStorage.getItem('ieProjects')) || [];
+                    projects.push(formData);
+                    localStorage.setItem('ieProjects', JSON.stringify(projects));
+                    alert('Proyek berhasil disimpan!');
+                    var addMore = confirm("Ingin menambahkan data lagi?");
+                    if (!addMore) {
+                        $('#projectTable').show();
+                        $('#projectForm').hide();
+                        loadProjects();
+                    }
+                    this.reset();
+                });
+
+                $('#projectsTable').on('click', '.delete-btn', function() {
+                    var projects = JSON.parse(localStorage.getItem('ieProjects')) || [];
+                    var index = $(this).data('index');
+                    if (confirm("Anda yakin ingin menghapus data ini?")) {
+                        projects.splice(index, 1);
+                        localStorage.setItem('ieProjects', JSON.stringify(projects));
+                        loadProjects();
+                    }
+                });
+
+                $('#projectsTable').on('click', '.edit-btn', function() {
+                    var index = $(this).data('index');
+                    var projects = JSON.parse(localStorage.getItem('ieProjects')) || [];
+                    var project = projects[index];
+                    $('#updateBenefit').val(project.benefit);
+                    $('#updateIndex').val(index);
+                    $('#projectForm').hide();
+                    $('#projectTable').hide();
+                    $('#projectUpdateForm').show();
+                });
+
+                $('#ieUpdateForm').submit(function(e) {
+                    e.preventDefault();
+                    var index = $('#updateIndex').val();
+                    var projects = JSON.parse(localStorage.getItem('ieProjects')) || [];
+                    var project = projects[index];
+                    // Update project data
+                    project.benefit = $('#updateBenefit').val();
+                    project.lastUpdateTime = new Date().toLocaleString();
+                    localStorage.setItem('ieProjects', JSON.stringify(projects));
+                    alert('Proyek berhasil diperbarui!');
+                    $('#projectUpdateForm').hide();
+                    $('#projectTable').show();
+                    loadProjects();
+                });
+
+                // Inisialisasi data table
+                $('#showTableButton').click(function() {
+                    $('#projectTable').show();
+                    $('#projectForm').hide();
+                    $('#projectUpdateForm').hide();
+                    if (!$.fn.DataTable.isDataTable('#projectsTable')) {
+                        $('#projectsTable').DataTable({});
+                    }
+                    loadProjects();
+                    $('html, body').animate({
+                        scrollTop: $("#projectTable").offset().top
+                    }, 1000);
+                });
+
+                $('#showFormButton').click(function() {
+                    $('#projectForm').show();
+                    $('#projectTable').hide();
+                    $('#projectUpdateForm').hide();
+                    $('html, body').animate({
+                        scrollTop: $("#projectForm").offset().top
+                    }, 1000);
+                });
+            });
+        </script>
+    </body>
+</html>
